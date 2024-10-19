@@ -77,11 +77,15 @@ void delete_at_begin(){
         return;
     }
     if(head->next==NULL){
+        struct Node* temp=head;
         head=NULL;
+        free(temp);
         printf("Success\n");
         return;
     }
+    struct Node* temp=head;
     head=head->next;
+    free(temp);
     printf("Success\n");
 }
 
@@ -92,7 +96,9 @@ void delete_at_end(){
         return;
     }
     if(head->next==NULL){
+        struct Node* temp=head;
         head=NULL;
+        free(temp);
         printf("Success\n");
         return;
     }
@@ -100,7 +106,9 @@ void delete_at_end(){
     while(node->next!=NULL && node->next->next!=NULL){
         node=node->next;
     }
+    struct Node* temp=node->next;
     node->next=NULL;
+    free(temp);
     printf("Success\n");
 }
 
@@ -130,7 +138,9 @@ if(node->next==NULL){
     return;
 }
 if(node->next->next==NULL){
+    struct Node* temp=node->next;
     node->next=NULL;
+    free(temp);
     printf("Success\n");
     return;
 }
